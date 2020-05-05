@@ -23,6 +23,7 @@ class UndirectedGraph(Graph):
     """"""
     dict_dict_dict = dict
     dict_dict = dict
+    node_factory = dict
 
     def __init__(self):
         """"""
@@ -38,7 +39,7 @@ class UndirectedGraph(Graph):
         """
         if node not in self.__nodes:
             self.__adj[node] = {}
-            metadata = self.__nodes[node] = {}
+            metadata = self.__nodes[node] = self.node_factory()
             metadata.update(kwargs)
         else:
             self.__nodes[node].update(kwargs)
@@ -53,11 +54,11 @@ class UndirectedGraph(Graph):
         """
         # add nodes
         if node_a not in self.__nodes:
-            self.__nodes[node_a] = {}  # holds nodes meta data
+            self.__nodes[node_a] = self.node_factory()  # holds nodes meta data
             self.__adj[node_a] = {}
             self.__adj[node_a][node_b] = {}
         if node_b not in self.__nodes:
-            self.__nodes[node_b] = {}
+            self.__nodes[node_b] = self.node_factory()
             self.__adj[node_b] = {}
             self.__adj[node_b][node_a] = {}
         # add edge
