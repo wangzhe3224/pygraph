@@ -5,6 +5,7 @@ class DfsPath:
 
     def __call__(self, graph, source):
         """"""
+        return dfs_path(graph, source)
 
 
 def dfs_path(graph, source):
@@ -47,3 +48,6 @@ def dfs_path(graph, source):
             paths[node] = None   # no path
 
     return paths
+
+def bfs_path(graph, source):
+    """"""
