@@ -1,6 +1,15 @@
 from pygraph.entities.graph import *
 
 
+def get_disconnect_graph():
+
+    ud = get_sample_graph()
+    ud.add_edge('z', 'y')
+    ud.add_edge('w', 't')
+
+    return ud
+
+
 def get_sample_graph():
 
     ud = UndirectedGraph()
