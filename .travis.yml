@@ -13,7 +13,7 @@ script:
   - pytest
 
 after_success:
-  - cd docs && make html
+  - cd docs && sphinx-apidoc -o source/ ../pygraph && make html
 
 deploy:
   provider: pages
