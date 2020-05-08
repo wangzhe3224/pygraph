@@ -1,4 +1,5 @@
 from pygraph.entities.graph import *
+from pygraph.entities.digraph import DiGraph
 
 
 def get_cyclic_graph():
@@ -47,3 +48,11 @@ def ex41():
         ud.add_edge(*e)
 
     return ud
+
+
+def get_digraph() -> DiGraph:
+
+    gp = DiGraph()
+    gp.add_edge('a', 'b')
+    gp.add_edge('a', 'c')
+    return gp
