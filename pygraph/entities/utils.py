@@ -1,6 +1,14 @@
 from pygraph.entities.graph import *
 
 
+def get_cyclic_graph():
+
+    ud = get_sample_graph()
+    ud.add_edge('e', 'a')
+
+    return ud
+
+
 def get_disconnect_graph():
 
     ud = get_sample_graph()
