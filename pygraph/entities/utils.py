@@ -65,3 +65,8 @@ def get_cyclic_digraph() -> DiGraph:
     gp.add_edge('d', 'a')
 
     return gp
+
+
+def ex42_digraph():
+    """"""
+    gp = DiGraph()
