@@ -13,4 +13,8 @@ class TestCase(unittest.TestCase):
     def test_path(self):
         gp = get_digraph()
         p = dfs_path(gp, 'a')
-        print(p)
+
+    def test_reverse(self):
+        gp = get_digraph()
+        reverse = gp.reverse()
+        self.assertDictEqual(reverse.adj, {'b': {'a': {}}, 'a': {}, 'c': {'a': {}}})

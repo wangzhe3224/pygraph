@@ -22,7 +22,7 @@ def dfs_path(graph, source):
     {target: [source, x, x, node2]}
     """
     visited = set()
-    edge_to = {}  # magic path..
+    edge_to = {source: [source]}  # node is connected to itself.
 
     def _dfs_path(graph, start):
         for _node in graph[start]:  # all its neighbour

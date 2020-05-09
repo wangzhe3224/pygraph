@@ -56,3 +56,12 @@ def get_digraph() -> DiGraph:
     gp.add_edge('a', 'b')
     gp.add_edge('a', 'c')
     return gp
+
+
+def get_cyclic_digraph() -> DiGraph:
+    """ cycle: a -> c -> d -> a """
+    gp = get_digraph()
+    gp.add_edge('c', 'd')
+    gp.add_edge('d', 'a')
+
+    return gp

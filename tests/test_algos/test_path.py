@@ -17,3 +17,10 @@ class TestPath(unittest.TestCase):
         paths = bfs_path(gp, 'a')
         tar = {'a': ['a'], 'b': ['b', 'a'], 'c': ['c', 'a'], 'd': ['d', 'c', 'a'], 'e': ['e', 'b', 'a']}
         self.assertDictEqual(tar, paths)
+
+    def test_dfs_digraph_path(self):
+        gp = get_digraph()
+        gp.add_edge('c', 'd')
+        gp.add_edge('d', 'c')
+        paths = dfs_path(gp, 'a')
+        self.assertDictEqual({'a': ['a'], 'b': ['b', 'a'], 'c': ['c', 'a'], 'd': ['d', 'c', 'a']}, paths)

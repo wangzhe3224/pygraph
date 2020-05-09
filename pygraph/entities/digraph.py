@@ -33,7 +33,7 @@ class DiGraph(GraphBase):
             self._nodes[node].update(kwargs)
 
     def add_edge(self, node_a: Hashable, node_b: Hashable, **kwargs):
-        """ add edge to graph
+        """ add edge to graph: node_a -> node_b
 
         :param node_a:
         :param node_b:
@@ -61,3 +61,12 @@ class DiGraph(GraphBase):
         :return:
         """
         return self._succ[node]
+
+    def reverse(self) -> GraphBase:
+        """ reverse the graph """
+        gp = self.__class__()
+        for a in self.nodes:
+            for b in self._adj[a]:
+                gp.add_edge(b, a)
+
+        return gp
