@@ -5,12 +5,17 @@
 
 [Documentation](https://wangzhe3224.github.io/pygraph/)
 
-A set of tool to create graph and algos to process graphs. Implementation of Algorithms 4th by Robert, the 
-Graph section. 
+A set of tool to create graph and algos to process graphs. This project is an implementation of Algorithms 4th by Robert, the 
+Graph section. Related code for https://wangzhe3224.github.io/tags/Graph/
 
 Dependency:
 - Python 3.6 or later
 
-Related code for https://wangzhe3224.github.io/tags/Graph/
+Rode Map:
+- [ ] visualization
+- [ ] computation graph
 
+
+## Related projects
 `networkx` is a similar project which is more comprehensive. 
+`graph-tool` is a similar project which is much comprehensive and fast.  
