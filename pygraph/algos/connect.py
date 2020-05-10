@@ -1,4 +1,6 @@
 from pygraph.entities.graph import UndirectedGraph
+from pygraph.entities.digraph import DiGraph
+from pygraph.algos.order import dfs_order
 
 
 def is_connected(graph, node_a, node_b) -> bool:
@@ -30,3 +32,32 @@ def is_connected(graph, node_a, node_b) -> bool:
             _count += 1
 
     return _id[node_a] == _id[node_b]
+
+
+def strong_connect(graph: DiGraph, a, b):
+    """ Strong connection
+
+    :param graph:
+    :param a:
+    :param b:
+    :return:
+    """
+    _, _, order = dfs_order(graph.reverse())
+
+    _visited = set()
+    _id = {}
+    _count = 0
+
+    def _dfs(_g, _n):
+        _visited.add(_n)
+        _id[_n] = _count
+        for child in _g[_n]:
+            if child not in _visited:
+                _dfs(_g, child)
+
+    for node in order:
+        if node not in _visited:
+            _dfs(graph, node)
+            _count += 1
+
+    return _id[a] == _id[b]

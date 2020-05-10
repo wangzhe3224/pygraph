@@ -1,6 +1,6 @@
 import unittest
 
-from pygraph.algos.connect import is_connected
+from pygraph.algos.connect import is_connected, strong_connect
 from pygraph.entities.utils import *
 
 
@@ -15,3 +15,15 @@ class TestConnect(unittest.TestCase):
         is_c = is_connected(gp, 'a', 'z')
         self.assertEqual(False, is_c)
 
+    def test_strong_connection(self):
+
+        gp = DiGraph()
+        gp.add_edge(0, 1)
+        gp.add_edge(1, 0)
+        sc = strong_connect(gp, 0, 1)
+        self.assertEqual(True, sc)
+
+        gp = DiGraph()
+        gp.add_edge(0, 1)
+        sc = strong_connect(gp, 0, 1)
+        self.assertEqual(False, sc)
