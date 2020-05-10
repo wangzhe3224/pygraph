@@ -18,6 +18,7 @@ Rode Map:
 
 
 ## Related projects
-`networkx` is a similar project which is more comprehensive. 
-`graph-tool` is a similar project which is much comprehensive and fast.  
-`GraphKit` is a similar project with computation node
+- `networkx` is a similar project which is more comprehensive.
+- `graph-tool` is a similar project which is much comprehensive and fast.  
+- `GraphKit` is a similar project with computation node
+- `HyperNetX` is a hypergraph project in python
