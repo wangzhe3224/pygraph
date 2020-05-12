@@ -1,6 +1,6 @@
 import unittest
 
-from pygraph.algos.path import dfs_path, bfs_path
+from pygraph.algos.path import dfs_path, bfs_path, dijkstra_shortest_path
 from pygraph.entities.utils import *
 
 
@@ -24,3 +24,11 @@ class TestPath(unittest.TestCase):
         gp.add_edge('d', 'c')
         paths = dfs_path(gp, 'a')
         self.assertDictEqual({'a': ['a'], 'b': ['b', 'a'], 'c': ['c', 'a'], 'd': ['d', 'c', 'a']}, paths)
+
+    def test_dijkstra_shortest_path(self):
+        gp = get_digraph()
+        gp.add_edge('c', 'd')
+        gp.add_edge('b', 'd', weight=2)
+
+        path = dijkstra_shortest_path(gp, 'a')
+        print(path)

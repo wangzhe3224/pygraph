@@ -1,4 +1,5 @@
 from collections import deque
+from heapq import heappop, heappush
 
 from pygraph.entities.graph import UndirectedGraph
 
@@ -84,3 +85,29 @@ def path_view(nodes, edge_to: dict, source):
             _paths[node] = None   # no path
 
     return _paths
+
+
+def dijkstra_shortest_path(graph, source, weight_str='weight'):
+    """ """
+    dist = {}
+    visited = {}
+    tmp = []
+
+    heappush(tmp, (0, source))
+
+    while tmp:
+        d, v = heappop(tmp)
+        if v in dist:
+            continue
+
+        dist[v] = d
+
+        for u, e in graph[v].items():
+            weight = e.get(weight_str, 1.0)
+            uv_dist = dist[v]+weight
+
+            if u not in visited or uv_dist < visited[u]:
+                visited[u] = uv_dist
+                heappush(tmp, (uv_dist, u))
+
+    return dist

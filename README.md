@@ -12,9 +12,7 @@ Dependency:
 - Python 3.6 or later
 
 Rode Map:
-- [ ] Visualization
 - [ ] Hyper graph
-- [ ] Lazy computation graph
 
 
 ## Related projects
